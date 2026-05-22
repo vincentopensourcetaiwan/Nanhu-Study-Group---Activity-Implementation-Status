@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>南湖共學團 · 活動執行情形 2024.3 — 2026.6</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:       #efe6cf;
+    --paper-warm:  #e9dfc4;
+    --paper-deep:  #d9cba8;
+    --ink:         #1f1a14;
+    --ink-soft:    #3a322a;
+    --ink-mute:    #6b5f4f;
+    --ink-faint:   #a39579;
+    --rule:        #b8a684;
+    --rule-soft:   #d6c7a4;
+    --seal:        #b53a30;
+    --seal-deep:   #962a22;
+    --jade:        #4f7a5a;
+    --jade-deep:   #355a3d;
+    --amber:       #b97a1e;
+    --amber-deep:  #8a5310;
+    --slate:       #5a5a5a;
+    --shadow:      rgba(40, 30, 15, 0.08);
+
+    --font-serif: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+    --font-sans:  "Noto Sans TC", system-ui, sans-serif;
+    --font-mono:  "JetBrains Mono", "Courier New", monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html, body { margin: 0; padding: 0; }
+
+  body {
+    background: var(--paper);
+    background-image:
+      /* paper grain */
+      radial-gradient(circle at 20% 30%, rgba(120, 90, 40, 0.04) 0, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(120, 90, 40, 0.04) 0, transparent 40%),
+      /* subtle fiber noise */
+      repeating-linear-gradient(
+        37deg,
+        transparent 0,
+        transparent 2px,
+        rgba(80, 60, 20, 0.012) 2px,
+        rgba(80, 60, 20, 0.012) 3px
+      );
+    color: var(--ink);
+    font-family: var(--font-serif);
+    font-size: 16px;
+    line-height: 1.6;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 56px 48px 96px;
+    position: relative;
+  }
+
+  /* ============ DECO MARKS (corners) ============ */
+  .corner {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    border: 1.5px solid var(--ink);
+  }
+  .corner.tl { top: 24px; left: 24px; border-right: none; border-bottom: none; }
+  .corner.tr { top: 24px; right: 24px; border-left: none; border-bottom: none; }
+  .corner.bl { bottom: 24px; left: 24px; border-right: none; border-top: none; }
+  .corner.br { bottom: 24px; right: 24px; border-left: none; border-top: none; }
+
+  /* ============ HEADER ============ */
+  header.masthead {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    align-items: end;
+    padding-bottom: 24px;
+    border-bottom: 2px solid var(--ink);
+    position: relative;
+  }
+  header.masthead::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0;
+    bottom: -8px;
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .archive-tag {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.22em;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    display: flex;
+    gap: 18px;
+    align-items: center;
+  }
+  .archive-tag .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--seal);
+    display: inline-block;
+  }
+
+  h1.title {
+    font-family: var(--font-serif);
+    font-weight: 900;
+    font-size: clamp(40px, 6vw, 72px);
+    line-height: 1.02;
+    margin: 0 0 14px;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+  }
+  h1.title .sub {
+    display: block;
+    font-size: 0.32em;
+    font-weight: 400;
+    letter-spacing: 0.4em;
+    color: var(--ink-mute);
+    margin-top: 14px;
+  }
+
+  .meta-line {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--ink-soft);
+    letter-spacing: 0.08em;
+    margin-top: 6px;
+  }
+
+  /* SEAL stamp */
+  .seal {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 116px;
+    height: 116px;
+    border: 3px double var(--seal);
+    color: var(--seal);
+    font-family: var(--font-serif);
+    font-weight: 700;
+    transform: rotate(-6deg);
+    position: relative;
+    line-height: 1;
+    background: rgba(181, 58, 48, 0.04);
+    flex-shrink: 0;
+  }
+  .seal::before {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    border: 1px solid var(--seal);
+    opacity: 0.6;
+  }
+  .seal .seal-row {
+    display: flex;
+    gap: 2px;
+    font-size: 22px;
+    letter-spacing: 0.04em;
+  }
+  .seal .seal-row.small {
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    margin-top: 8px;
+    font-weight: 400;
+  }
+
+  /* ============ INTRO / KEY ============ */
+  .intro {
+    margin-top: 36px;
+    display: grid;
+    grid-template-columns: 2.2fr 1fr;
+    gap: 56px;
+    padding-bottom: 36px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .intro p {
+    margin: 0;
+    font-size: 15.5px;
+    color: var(--ink-soft);
+    line-height: 1.85;
+    text-align: justify;
+  }
+  .intro p + p { margin-top: 14px; }
+
+  .legend {
+    font-family: var(--font-sans);
+  }
+  .legend h4 {
+    font-family: var(--font-serif);
+    font-size: 13px;
+    margin: 0 0 14px;
+    letter-spacing: 0.3em;
+    color: var(--ink-mute);
+    font-weight: 500;
+  }
+  .legend-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+    margin-bottom: 10px;
+    color: var(--ink-soft);
+  }
+  .legend-row .cat {
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.2px solid var(--ink);
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 14px;
+    background: var(--paper-warm);
+    flex-shrink: 0;
+  }
+  .legend-row .cat.snow   { color: #4a6b8a; border-color: #4a6b8a; }
+  .legend-row .cat.giant  { color: #5b6b34; border-color: #5b6b34; }
+  .legend-row .cat.museum { color: #7c5a2e; border-color: #7c5a2e; }
+  .legend-row .cat.old    { color: #8a4a2c; border-color: #8a4a2c; }
+  .legend-row .cat.spec   { color: #6b3a6b; border-color: #6b3a6b; }
+  .legend-row .cat.nan    { color: var(--seal); border-color: var(--seal); }
+
+  /* ============ FILTER BAR ============ */
+  .controls {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 24px;
+    padding: 18px 0;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    position: sticky;
+    top: 0;
+    background: var(--paper);
+    z-index: 10;
+  }
+  .controls-label {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.25em;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    margin-right: 4px;
+  }
+  .chip {
+    font-family: var(--font-serif);
+    font-size: 14px;
+    color: var(--ink-soft);
+    background: none;
+    border: none;
+    padding: 4px 0;
+    cursor: pointer;
+    letter-spacing: 0.08em;
+    position: relative;
+    transition: color 0.15s;
+  }
+  .chip:hover { color: var(--ink); }
+  .chip.active {
+    color: var(--ink);
+    font-weight: 700;
+  }
+  .chip.active::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0;
+    bottom: -2px;
+    height: 2px;
+    background: var(--ink);
+  }
+  .chip .num {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--ink-faint);
+    margin-left: 4px;
+    vertical-align: super;
+  }
+  .controls .sep {
+    width: 1px;
+    height: 18px;
+    background: var(--rule);
+  }
+
+  /* ============ YEAR HEADER ============ */
+  .year-section {
+    margin-top: 48px;
+  }
+  .year-head {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+  .year-head .y {
+    font-family: var(--font-serif);
+    font-weight: 900;
+    font-size: 96px;
+    line-height: 0.85;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .year-head .y .small {
+    display: block;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.5em;
+    color: var(--ink-mute);
+    margin-top: 8px;
+  }
+  .year-head .rule {
+    height: 1px;
+    background: var(--ink);
+    align-self: end;
+    margin-bottom: 18px;
+  }
+  .year-head .count {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--ink-mute);
+    letter-spacing: 0.2em;
+    align-self: end;
+    margin-bottom: 22px;
+  }
+
+  /* ============ ACTIVITY ROW ============ */
+  .row {
+    display: grid;
+    grid-template-columns: 80px 1fr 220px 140px;
+    gap: 28px;
+    padding: 26px 0;
+    border-bottom: 1px solid var(--rule-soft);
+    align-items: start;
+    transition: background 0.2s;
+  }
+  .row:hover {
+    background: rgba(255, 248, 228, 0.5);
+  }
+  .row.hidden { display: none; }
+
+  .row-num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 0.15em;
+    padding-top: 6px;
+  }
+  .row-num .big {
+    display: block;
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--ink);
+    letter-spacing: 0;
+    margin-top: 2px;
+  }
+
+  .row-main {
+    min-width: 0;
+  }
+  .row-title {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+  .row-title h3 {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 22px;
+    margin: 0;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+  }
+  .row-title .cat-tag {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 12px;
+    padding: 2px 8px;
+    border: 1px solid currentColor;
+    line-height: 1.4;
+  }
+  .row-title .cat-tag.snow   { color: #4a6b8a; }
+  .row-title .cat-tag.giant  { color: #5b6b34; }
+  .row-title .cat-tag.museum { color: #7c5a2e; }
+  .row-title .cat-tag.old    { color: #8a4a2c; }
+  .row-title .cat-tag.spec   { color: #6b3a6b; }
+  .row-title .cat-tag.nan    { color: var(--seal); }
+  .row-title .alt-tag {
+    font-family: var(--font-sans);
+    font-size: 10.5px;
+    letter-spacing: 0.2em;
+    color: var(--ink-mute);
+    padding: 2px 8px;
+    background: var(--paper-deep);
+  }
+
+  .row-note {
+    font-size: 13.5px;
+    color: var(--ink-mute);
+    line-height: 1.7;
+    margin-top: 4px;
+    font-family: var(--font-sans);
+  }
+
+  .people {
+    font-family: var(--font-sans);
+    font-size: 11.5px;
+    color: var(--ink-mute);
+    margin-top: 10px;
+    line-height: 1.7;
+  }
+  .people .pl {
+    color: var(--ink-faint);
+    letter-spacing: 0.15em;
+    margin-right: 4px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    text-transform: uppercase;
+  }
+  .people-block { margin-top: 4px; }
+
+  /* Dates column */
+  .row-dates {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--ink-soft);
+    padding-top: 4px;
+    line-height: 1.6;
+  }
+  .row-dates .lbl {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    margin-bottom: 2px;
+    display: block;
+  }
+  .row-dates .val-plan {
+    color: var(--ink-mute);
+    text-decoration: line-through;
+    text-decoration-color: var(--ink-faint);
+  }
+  .row-dates .val-actual {
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .row-dates .blk + .blk { margin-top: 10px; }
+
+  /* Status badge */
+  .row-status {
+    padding-top: 4px;
+  }
+  .status-badge {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 96px;
+    height: 96px;
+    border: 2.5px double currentColor;
+    font-family: var(--font-serif);
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.1;
+    position: relative;
+    background: rgba(255, 252, 240, 0.4);
+  }
+  .status-badge::before {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    border: 1px solid currentColor;
+    opacity: 0.4;
+  }
+  .status-badge .stat-main {
+    font-size: 22px;
+    letter-spacing: 0.05em;
+  }
+  .status-badge .stat-sub {
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    font-weight: 400;
+    margin-top: 4px;
+    font-family: var(--font-sans);
+  }
+
+  .status-done    { color: var(--jade-deep); }
+  .status-divert  { color: var(--amber-deep); }
+  .status-cancel  { color: var(--seal-deep); }
+  .status-pending { color: var(--slate); border-style: dashed; }
+
+  .status-done::after,
+  .status-divert::after,
+  .status-cancel::after {
+    /* faint paper-stamp imperfection */
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border: 1px solid currentColor;
+    opacity: 0.12;
+    transform: rotate(2deg);
+    pointer-events: none;
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    margin-top: 80px;
+    padding-top: 32px;
+    border-top: 2px solid var(--ink);
+    position: relative;
+  }
+  footer::before {
+    content: "";
+    position: absolute;
+    top: -8px; left: 0; right: 0;
+    border-top: 1px solid var(--ink);
+  }
+  .summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 36px;
+  }
+  .stat {
+    border-left: 2px solid var(--ink);
+    padding: 6px 0 6px 16px;
+  }
+  .stat .n {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 1;
+    color: var(--ink);
+  }
+  .stat .l {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  .colophon {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    padding-top: 18px;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* Section divider for 外卡 */
+  .section-divider {
+    text-align: center;
+    margin: 64px 0 32px;
+    font-family: var(--font-serif);
+    font-size: 12px;
+    letter-spacing: 0.5em;
+    color: var(--ink-mute);
+    position: relative;
+  }
+  .section-divider::before,
+  .section-divider::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 38%;
+    height: 1px;
+    background: var(--rule);
+  }
+  .section-divider::before { left: 0; }
+  .section-divider::after  { right: 0; }
+  .section-divider span {
+    display: inline-block;
+    padding: 0 16px;
+    background: var(--paper);
+    position: relative;
+    z-index: 1;
+  }
+  .section-divider .ornament {
+    color: var(--seal);
+    margin: 0 6px;
+  }
+
+  /* MOBILE */
+  @media (max-width: 860px) {
+    .page { padding: 40px 24px 64px; }
+    header.masthead { grid-template-columns: 1fr; gap: 16px; }
+    .seal { align-self: end; }
+    .intro { grid-template-columns: 1fr; gap: 28px; }
+    .year-head .y { font-size: 64px; }
+    .row {
+      grid-template-columns: 56px 1fr;
+      gap: 16px;
+    }
+    .row-dates, .row-status {
+      grid-column: 2;
+    }
+    .row-status { margin-top: 8px; }
+    .summary { grid-template-columns: repeat(2, 1fr); }
+    .controls { position: static; }
+  }
+</style>
+</head>
+<body>
+
+<div class="corner tl"></div>
+<div class="corner tr"></div>
+<div class="corner bl"></div>
+<div class="corner br"></div>
+
+<div class="page">
+
+  <!-- ============ MASTHEAD ============ -->
+  <header class="masthead">
+    <div>
+      <div class="archive-tag">
+        <span class="dot"></span>
+        <span>檔案 No. NH—2024.03 / 2026.06</span>
+        <span>·</span>
+        <span>第 壹 號 卷宗</span>
+      </div>
+      <h1 class="title">南湖共學團
+        <span class="sub">活動執行情形・三十一場記事</span>
+      </h1>
+      <div class="meta-line">
+        2024.03 — 2026.06  ／  TAIWAN  ／  MOUNTAIN STUDY GROUP
+      </div>
+    </div>
+
+    <div class="seal" title="南湖印">
+      <div class="seal-row">南湖</div>
+      <div class="seal-row">共學</div>
+      <div class="seal-row small">EST. 2024</div>
+    </div>
+  </header>
+
+  <!-- ============ INTRO ============ -->
+  <section class="intro">
+    <div>
+      <p>本卷宗收錄「南湖共學團」自 2024 年 3 月至 2026 年 6 月間，共三個年度、二十有八場常規行程與四場外卡活動之執行情形。記錄包括原訂日期、實際出隊日期、籌備人員、實際參與夥伴，以及因天候、地震、人力等因素導致的路線轉進與延期紀錄。</p>
+      <p>山徑因風雨而改道，計畫也常因人事而移轉。此檔記之以為將來查考。</p>
+    </div>
+    <div class="legend">
+      <h4>路線類型・對照</h4>
+      <div class="legend-row"><span class="cat snow">雪</span>雪山山系・霸群</div>
+      <div class="legend-row"><span class="cat giant">巨</span>巨木・神木</div>
+      <div class="legend-row"><span class="cat museum">博</span>博物學・自然觀察</div>
+      <div class="legend-row"><span class="cat old">古</span>古道・駐在所</div>
+      <div class="legend-row"><span class="cat spec">特</span>特殊地形・專題</div>
+      <div class="legend-row"><span class="cat nan">南</span>南湖群峰</div>
+    </div>
+  </section>
+
+  <!-- ============ FILTER ============ -->
+  <nav class="controls" id="controls">
+    <span class="controls-label">年度 · YEAR</span>
+    <button class="chip active" data-filter="year" data-val="all">全部 <span class="num" id="ct-all">0</span></button>
+    <button class="chip" data-filter="year" data-val="2024">2024 <span class="num" id="ct-2024">0</span></button>
+    <button class="chip" data-filter="year" data-val="2025">2025 <span class="num" id="ct-2025">0</span></button>
+    <button class="chip" data-filter="year" data-val="2026">2026 <span class="num" id="ct-2026">0</span></button>
+    <button class="chip" data-filter="year" data-val="extra">外卡 <span class="num" id="ct-extra">0</span></button>
+
+    <span class="sep"></span>
+
+    <span class="controls-label">執行 · STATUS</span>
+    <button class="chip active" data-filter="status" data-val="all">全部</button>
+    <button class="chip" data-filter="status" data-val="done">完成</button>
+    <button class="chip" data-filter="status" data-val="divert">轉進</button>
+    <button class="chip" data-filter="status" data-val="cancel">取消</button>
+    <button class="chip" data-filter="status" data-val="pending">延期/待辦</button>
+  </nav>
+
+  <!-- ============ ACTIVITY LIST ============ -->
+  <main id="activity-list"></main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="summary">
+      <div class="stat"><div class="n" id="sum-total">—</div><div class="l">總場次 · Total</div></div>
+      <div class="stat"><div class="n" id="sum-done">—</div><div class="l">完成 · Completed</div></div>
+      <div class="stat"><div class="n" id="sum-divert">—</div><div class="l">轉進 · Diverted</div></div>
+      <div class="stat"><div class="n" id="sum-cancel">—</div><div class="l">取消/延期 · Postponed</div></div>
+    </div>
+    <div class="colophon">
+      <span>NANHU MOUNTAIN STUDY GROUP</span>
+      <span>編纂於 民國 一一五年 · MMXXVI</span>
+      <span>卷終 — 共 三十二 紙</span>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+/* ============ DATA ============ */
+const DATA = [
+  // ---- 2024 ----
+  { y:"2024", no:"3", name:"淡蘭古道中路", cat:"雪",
+    planDate:"2024/3/30(Sat)–31(Sun)，2天",
+    actualDate:"2024/3/30(Sat)–31(Sun)",
+    planners:"陽聖、士恒、Vincent、佳綾、Joy",
+    participants:"陽聖、Vincent、佳綾、舜薇、鯉百、小龍、Jess、Joyce、晏霖、大魚、竹竹、Ru",
+    status:"done", note:"D2 天候不佳，崩山坑古道未走完。" },
+  { y:"2024", no:"4", name:"大安溪神木", cat:"巨",
+    planDate:"2024/5/4(Sat)–6(Mon)，3天",
+    actualDate:"2024/5/4(Sat)–5(Sun)",
+    planners:"小龍、晏霖、大Q、藍、Jess",
+    participants:"陽聖、小J、Vincent、小龍、舜薇、亭勻、嘉艾、萍萍、Joyce、大魚、藍",
+    status:"divert", note:"因 0403 地震擔心路坍，轉進樂山鐵道。", reschedule:"待確認" },
+  { y:"2024", no:"5", name:"神農嚐野草", cat:"博",
+    planDate:"2024/6/1(Sat)–2(Sun)，2天",
+    actualDate:"2024/10/19(Sat)",
+    planners:"頡翔、慧貞、陽聖、愷倫、Joy",
+    participants:"陽聖、Vincent、佳綾、志銘、慧貞、頡翔、鯉百、家彬、嘉艾、Jess、大魚、竹竹、小山、Tino、Alisa",
+    status:"done", note:"因天候不佳延至 10/19–20 原銅山山毛櫸時段，後又因天候縮短為單日活動 @ 西坑林道。" },
+  { y:"2024", no:"6", name:"蛙類觀察—阿里磅生態農場", cat:"博",
+    planDate:"2024/6/22(Sat)–23(Sun)，2天",
+    actualDate:"—",
+    planners:"Vincent、陽聖、佳綾、Jess",
+    participants:"—",
+    status:"cancel", note:"報名人數不足，活動取消。", reschedule:"待確認" },
+  { y:"2024", no:"7", name:"大溪川趴溪", cat:"博",
+    planDate:"2024/7/20(Sat)–21(Sun)，2天",
+    actualDate:"2024/7/7(Sun)",
+    planners:"晏霖、慧貞、貓、大Q、Jess",
+    participants:"陽聖、Vincent、佳綾、志銘、世忠、大貓、士恒、慧貞、愷倫、亭勻、家彬、鯉百、Jess、晏霖、緣緣、小山、Arlene、Joyce、Ru、洪洪",
+    status:"done", note:"改為單日活動。" },
+  { y:"2024", no:"8", name:"海鼠山駐在所", cat:"古",
+    planDate:"2024/8/17(Sat)–18(Sun)，2天",
+    actualDate:"2024/8/17(Sat)–18(Sun)",
+    planners:"小龍、阿匡、士恒、Joyce、Ru",
+    participants:"陽聖、志銘、佳綾、Vincent、士恒、小龍、阿匡、松屏、Mimi、鯉百、小山、Ru、Joyce、安安",
+    status:"divert", note:"因 0403 地震路斷，改特富野水山支線＋拉拉喀斯神木，後又因路坍轉進觀雪縱走。", reschedule:"待確認" },
+  { y:"2024", no:"9", name:"大霸北稜", cat:"雪", elevation:"高山",
+    planDate:"2024/9/14(Sat)–18(Wed)，5天，請2天假",
+    actualDate:"2024/9/20(Fri)–24(Tue)",
+    planners:"緣緣、Arlene、陽聖、竹竹、大貓、Vincent、愷倫",
+    participants:"陽聖、Vincent、Rita、Q、萍萍、晏霖、竹竹",
+    status:"pending", note:"因籌備組心情未 ready，延到後年，原時段改走聖 O。", reschedule:"2026/9/18(Fri)–22(Tue)" },
+  { y:"2024", no:"10", name:"翠峰湖—銅山山毛櫸", cat:"博",
+    planDate:"2024/10/26(Sat)–27(Sun)，2天",
+    actualDate:"—",
+    planners:"頡翔、愷倫、大Q、Jess、晏霖",
+    participants:"—",
+    status:"pending", note:"因神農嚐野草延期到 2025/10/24–26，又因天候因素延期到 2026。", reschedule:"2026/10/23(Fri)–10/25(Sun)" },
+  { y:"2024", no:"11", name:"玉山後五峰", cat:"特", elevation:"高山",
+    planDate:"2024/11/14(Thu)–17(Sun)，4天，請2天假",
+    actualDate:"—",
+    planners:"小J、頡翔、陽聖、愷倫",
+    participants:"—",
+    status:"cancel", note:"因颱風取消。", reschedule:"待確認" },
+  { y:"2024", no:"12", name:"舊好茶", cat:"古", elevation:"南部",
+    planDate:"2024/12/14(Sat)–15(Sun)，2天",
+    actualDate:"2024/12/14(Sat)–15(Sun)",
+    planners:"Vincent、陽聖、家彬",
+    participants:"Vincent、柏青、素惠",
+    status:"divert", note:"因颱風路坍，改為烏石坑山、船形山、小雪山步道 O 型。", reschedule:"待確認" },
+
+  // ---- 2025 ----
+  { y:"2025", no:"2", name:"浸水營＋阿朗壹古道", cat:"古", elevation:"南部",
+    planDate:"2025/2/28(Fri)–3/2(Sun)，3天",
+    actualDate:"2025/2/28(Fri)–3/2(Sun)",
+    planners:"陽聖、Tino、小J",
+    participants:"陽聖、Tino、Vincent、大Q、Ru、Gina",
+    status:"done" },
+  { y:"2025", no:"3", name:"關子嶺攀岩", cat:"特",
+    planDate:"2025/3/29(Sat)–30(Sun)，2天",
+    actualDate:"2025/11/22(Sat)",
+    planners:"士恒、Joyce、Vincent",
+    participants:"士恒、陽聖、小J、Vincent、小龍、Jess、小山、Ru、晏霖、Liyen",
+    status:"divert", note:"考量交通與籌備等因素，轉進龍洞攀岩。", reschedule:"待確認" },
+  { y:"2025", no:"4", name:"銅山—雅音", cat:"古",
+    planDate:"2025/5/1(Thu)–4(Sun)，4天，請1天假",
+    actualDate:"—",
+    planners:"大Q、士恒、Vincent、陽聖、Jess",
+    participants:"—",
+    status:"pending", note:"因出發當日路坍，延期至 2025/10/24–26 與銅山山毛櫸合辦，後又因天候因素延期。", reschedule:"2026/10/23(Fri)–10/25(Sun)" },
+  { y:"2025", no:"5", name:"蝴蝶觀察", cat:"博",
+    planDate:"2025/5/24(Sat)，1天",
+    actualDate:"2026/5/16(Sat)",
+    planners:"愷倫、陽聖、Vincent、Tino、Jess",
+    participants:"Jess、Alisa、烏烏、陽聖、愷倫、Vincent、嘉艾、家彬、佳綾、志銘、大魚、竹竹、鯉百",
+    status:"done", note:"因天候疑慮延期至 2025/9/20，又因颱風外圍環流再延至 2026/5/16。" },
+  { y:"2025", no:"6", name:"丹大七彩湖", cat:"特", elevation:"高山",
+    planDate:"2025/6/13(Fri)–6/17(Tue)，5天，請3天假",
+    actualDate:"2025/6/14(Sat)–6/16(Mon)",
+    planners:"嘉艾、晏霖、愷倫、Vincent、Jess",
+    participants:"晏霖、愷倫、Vincent、陽聖、頡翔、小山",
+    status:"divert", note:"因林道路坍，改走卯畢羊。", reschedule:"待確認" },
+  { y:"2025", no:"7", name:"石子溪趴溪", cat:"博",
+    planDate:"2025/7/13(Sun)，1天",
+    actualDate:"2025/7/13(Sun)",
+    planners:"Jess、貓、Vincent",
+    participants:"Jess、Alisa、鯉百、大魚、小山、士恒、承隆、小龍、頡翔、陽聖、Vincent、竹竹、洪意凌（竹竹友人）",
+    status:"done" },
+  { y:"2025", no:"8", name:"八通關越嶺道", cat:"古", elevation:"高山",
+    planDate:"2025/8/16(Sat)–23(Sat)，8天，請5天假",
+    actualDate:"2025/8/16(Sat)–18(Mon)",
+    planners:"陽聖、小龍、晏霖、士恒、貓",
+    participants:"陽聖、晏霖、Vincent、小山、萍萍、竹竹、頡翔",
+    status:"divert", note:"因楊柳颱風封園，改走巴棲松。", reschedule:"2027/7/17–24" },
+  { y:"2025", no:"9", name:"烏來三姑", cat:"雪",
+    planDate:"2025/9/13(Sat)，1天",
+    actualDate:"2025/9/13(Sat)–14(Sun)",
+    planners:"嘉艾、大Q、Vincent",
+    participants:"陽聖、嘉艾、大Q、Vincent、鯉百、Ru、承隆、小綠、玥禾（小綠女兒）",
+    status:"done" },
+  { y:"2025", no:"10", name:"嵐山工作站", cat:"巨",
+    planDate:"2025/10/9(Thu)–13(Mon)，5天，請2天假",
+    actualDate:"2025/10/10(Fri)–10/14(Tue)",
+    planners:"小龍、阿匡、士恒、頡翔、Joy",
+    participants:"小龍、阿匡、頡翔、陽聖、大Q",
+    status:"done" },
+  { y:"2025", no:"11", name:"芽丁溫泉", cat:"特",
+    planDate:"2025/11/8(Sat)–9(Sun)，2天",
+    actualDate:"2025/11/8(Sat)–9(Sun)",
+    planners:"Vincent、晏霖、家彬",
+    participants:"Vincent、晏霖、家彬、陽聖、嘉艾、Joyce、佳綾、志銘",
+    status:"divert", note:"因產業道路坍方有安全疑慮，改走四稜溫泉—復興尖山（D2 復興尖山未完成）。", reschedule:"待確認" },
+  { y:"2025", no:"12", name:"佐藤駐在所", cat:"古",
+    planDate:"2025/12/12(Fri)–14(Sun)，3天，請1天假",
+    actualDate:"—",
+    planners:"小龍、jess、大Q",
+    participants:"—",
+    status:"pending", note:"因陽聖出差，暫緩行程籌備。", reschedule:"待確認" },
+
+  // ---- 2026 ----
+  { y:"2026", no:"2", name:"萬山岩雕群", cat:"古", elevation:"南部",
+    planDate:"2026/2/27(Fri)–3/1(Sun)，3天",
+    actualDate:"2026/2/27(Fri)–3/1(Sun)",
+    planners:"嘉艾、萍、陽聖、Vincent、Joy",
+    participants:"陽聖、Vincent、柏青、Gina、嘉艾、阿萍、Joy",
+    status:"done" },
+  { y:"2026", no:"3", name:"小林駐在所", cat:"古",
+    planDate:"2026/3/28(Sat)–29(Sun)，2天",
+    actualDate:"—",
+    planners:"陽聖、大Q、晏霖、洪洪、士恒、舜薇、慧貞、Joy",
+    participants:"—",
+    status:"cancel", note:"因籌備組無法參與行程，活動取消。" },
+  { y:"2026", no:"4", name:"拳頭母—崙埤", cat:"雪",
+    planDate:"2026/5/1(Fri)–3(Sun)，3天",
+    actualDate:"2026/5/1(Fri)–2(Sat)",
+    planners:"陽聖、Vincent、大Q、晏霖",
+    participants:"陽聖、Vincent、志銘、Jess、大Q、佳綾、小山、竹竹、大魚",
+    status:"done", note:"改由崙埤社區下山，縮減為 2 日行程。" },
+  { y:"2026", no:"6a", name:"南湖群峰", cat:"南", elevation:"高山",
+    planDate:"2026/6/10(Wed)–14(Sun)，5天，請3天假",
+    actualDate:"—",
+    planners:"嘉艾、士恒、家彬",
+    participants:"—",
+    status:"cancel", note:"因籌備人力短缺，活動取消。", reschedule:"待確認" },
+  { y:"2026", no:"6b", name:"雙鹿連走", cat:"南", elevation:"高山",
+    planDate:"2026/6/9(Tue)–14(Sun)，6天，請4天假",
+    actualDate:"—",
+    planners:"陽聖、大Q、Vincent、緣緣",
+    participants:"—",
+    status:"pending", note:"籌備不及與緣緣腳傷，延期至 8 月舉行。", reschedule:"2026/8/13(Thu)–18(Tue)" },
+
+  // ---- 外卡 EXTRA ----
+  { y:"extra", no:"E1", name:"烏山／坪溪／石悾古道", cat:"特",
+    subtitle:"聖O 行前訓練 ①",
+    planDate:"—",
+    actualDate:"2024/8/31(Sat)",
+    planners:"—",
+    participants:"Vincent、陽聖、家彬、藍、Lewis、YOKO、TOMOKO",
+    status:"done" },
+  { y:"extra", no:"E2", name:"武法奈尾～天巒池～合歡北", cat:"特",
+    subtitle:"聖O 行前訓練 ②",
+    planDate:"—",
+    actualDate:"2024/9/7(Sat)–8(Sun)",
+    planners:"—",
+    participants:"陽聖、Vincent、藍、Nikar、大Q、Rita、小山",
+    status:"done" },
+  { y:"extra", no:"E3", name:"陽明山東西健腳不受傷縱走", cat:"特",
+    subtitle:"聖O 行前訓練 ③",
+    planDate:"—",
+    actualDate:"2024/9/15(Sun)",
+    planners:"—",
+    participants:"陽聖、Vincent、晏霖、竹竹、阿萍、小J、大Q、家彬",
+    status:"done", note:"西段未完成。" },
+  { y:"extra", no:"E4", name:"歲末聯歡—苗栗南庄秘境露營區", cat:"特",
+    planDate:"—",
+    actualDate:"2024/11/30(Sat)–12/1(Sun)",
+    planners:"Arlene、緣緣、小山、歐歐、小龍、陽聖",
+    participants:"陽聖、小J、佳綾、志銘、大貓、大Q、士恒、鯉百、Jess、Arlene、緣緣、小山、歐歐、Joyce、竹竹、Ru、曹穎、岱子、Alisa",
+    status:"done" },
+  { y:"extra", no:"E5", name:"古關原", cat:"特",
+    subtitle:"八通關越嶺古道行前訓練",
+    planDate:"—",
+    actualDate:"2025/7/26(Sat)–27(Sun)",
+    planners:"—",
+    participants:"陽聖、晏霖、Vincent、小山、萍萍、竹竹、頡翔、小龍",
+    status:"done" }
+];
+
+/* ============ HELPERS ============ */
+const CAT_CLASS = { "雪":"snow", "巨":"giant", "博":"museum", "古":"old", "特":"spec", "南":"nan" };
+const STATUS_LABEL = {
+  done:    { zh:"完成", en:"COMPLETED" },
+  divert:  { zh:"轉進", en:"DIVERTED" },
+  cancel:  { zh:"取消", en:"CANCELLED" },
+  pending: { zh:"延期", en:"POSTPONED" }
+};
+
+/* Build year sections */
+const list = document.getElementById('activity-list');
+const groups = {
+  "2024": { label:"二〇二四", en:"MMXXIV", items:[] },
+  "2025": { label:"二〇二五", en:"MMXXV", items:[] },
+  "2026": { label:"二〇二六", en:"MMXXVI", items:[] },
+  "extra":{ label:"外卡活動", en:"EXTRA RECORDS", items:[] }
+};
+DATA.forEach(d => groups[d.y].items.push(d));
+
+let runningIndex = 0;
+Object.entries(groups).forEach(([key, g], gi) => {
+  const sec = document.createElement('section');
+  sec.className = 'year-section';
+  sec.dataset.year = key;
+
+  // section header
+  if (key === 'extra') {
+    sec.innerHTML += `
+      <div class="section-divider">
+        <span><span class="ornament">❖</span>其他外卡活動<span class="ornament">❖</span></span>
+      </div>`;
+  } else {
+    sec.innerHTML += `
+      <div class="year-head">
+        <div class="y">${key}<span class="small">${g.label}・${g.en}</span></div>
+        <div class="rule"></div>
+        <div class="count">${g.items.length} 場 · ${g.en}</div>
+      </div>`;
+  }
+
+  // rows
+  g.items.forEach(d => {
+    runningIndex += 1;
+    const catCls = CAT_CLASS[d.cat] || 'snow';
+    const idxStr = String(runningIndex).padStart(3, '0');
+    const stat = STATUS_LABEL[d.status];
+
+    const elevTag = d.elevation
+      ? `<span class="alt-tag">${d.elevation}</span>` : '';
+
+    const subTitle = d.subtitle
+      ? `<div class="row-note" style="margin-top:2px;font-style:italic;">— ${d.subtitle}</div>` : '';
+
+    const noteHtml = d.note
+      ? `<div class="row-note">${d.note}</div>` : '';
+
+    const planBlock = d.planDate && d.planDate !== '—'
+      ? `<div class="blk"><span class="lbl">原訂 · planned</span><span class="${d.actualDate && d.actualDate!=='—' && d.actualDate!==d.planDate.replace(/^日期:/,'').replace(/，.*$/,'') ? 'val-plan' : 'val-actual'}">${d.planDate.replace(/^日期:/,'')}</span></div>`
+      : '';
+
+    const actualBlock = d.actualDate && d.actualDate !== '—'
+      ? `<div class="blk"><span class="lbl">實際 · actual</span><span class="val-actual">${d.actualDate}</span></div>`
+      : (d.status === 'cancel' ? `<div class="blk"><span class="lbl">實際 · actual</span><span class="val-actual" style="color:var(--seal-deep)">— 未出隊 —</span></div>` : '');
+
+    const reschedBlock = d.reschedule
+      ? `<div class="blk"><span class="lbl">續辦 · reschedule</span><span class="val-actual" style="color:var(--amber-deep)">${d.reschedule}</span></div>`
+      : '';
+
+    const plannersBlock = d.planners && d.planners !== '—'
+      ? `<div class="people-block"><span class="pl">籌備</span>${d.planners}</div>` : '';
+    const partsBlock = d.participants && d.participants !== '—'
+      ? `<div class="people-block"><span class="pl">參與</span>${d.participants}</div>` : '';
+
+    const row = document.createElement('article');
+    row.className = 'row';
+    row.dataset.year = d.y;
+    row.dataset.status = d.status;
+    row.innerHTML = `
+      <div class="row-num">No.<span class="big">${idxStr}</span>${d.no}</div>
+      <div class="row-main">
+        <div class="row-title">
+          <h3>${d.name}</h3>
+          <span class="cat-tag ${catCls}">${d.cat}</span>
+          ${elevTag}
+        </div>
+        ${subTitle}
+        ${noteHtml}
+        <div class="people">
+          ${plannersBlock}
+          ${partsBlock}
+        </div>
+      </div>
+      <div class="row-dates">
+        ${planBlock}
+        ${actualBlock}
+        ${reschedBlock}
+      </div>
+      <div class="row-status">
+        <div class="status-badge status-${d.status}">
+          <div class="stat-main">${stat.zh}</div>
+          <div class="stat-sub">${stat.en}</div>
+        </div>
+      </div>
+    `;
+    sec.appendChild(row);
+  });
+
+  list.appendChild(sec);
+});
+
+/* ============ COUNTS & STATS ============ */
+const total = DATA.length;
+const cnt = { done:0, divert:0, cancel:0, pending:0 };
+DATA.forEach(d => cnt[d.status]++);
+document.getElementById('sum-total').textContent = String(total).padStart(2,'0');
+document.getElementById('sum-done').textContent = String(cnt.done).padStart(2,'0');
+document.getElementById('sum-divert').textContent = String(cnt.divert).padStart(2,'0');
+document.getElementById('sum-cancel').textContent = String(cnt.cancel + cnt.pending).padStart(2,'0');
+
+document.getElementById('ct-all').textContent = total;
+['2024','2025','2026','extra'].forEach(y =>
+  document.getElementById('ct-'+y).textContent = DATA.filter(d=>d.y===y).length
+);
+
+/* ============ FILTERING ============ */
+const state = { year: 'all', status: 'all' };
+const chips = document.querySelectorAll('.chip');
+chips.forEach(ch => ch.addEventListener('click', () => {
+  const f = ch.dataset.filter, v = ch.dataset.val;
+  state[f] = v;
+  chips.forEach(c => { if (c.dataset.filter === f) c.classList.toggle('active', c === ch); });
+  applyFilter();
+}));
+
+function applyFilter() {
+  document.querySelectorAll('.row').forEach(r => {
+    const yOk = state.year === 'all' || r.dataset.year === state.year;
+    const sOk = state.status === 'all' || r.dataset.status === state.status;
+    r.classList.toggle('hidden', !(yOk && sOk));
+  });
+  // hide empty year-section heads
+  document.querySelectorAll('.year-section').forEach(sec => {
+    const visibleRows = sec.querySelectorAll('.row:not(.hidden)');
+    sec.style.display = visibleRows.length ? '' : 'none';
+  });
+}
+</script>
+
+</body>
+</html>
