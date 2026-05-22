@@ -462,6 +462,38 @@
   }
   .row-dates .blk + .blk { margin-top: 10px; }
 
+  /* 規劃續辦日期 — distinct visual emphasis */
+  .row-dates .resched-blk {
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--rule);
+    position: relative;
+  }
+  .row-dates .resched-blk .lbl {
+    color: var(--amber-deep);
+    font-weight: 500;
+  }
+  .row-dates .val-resched-set {
+    color: var(--amber-deep);
+    font-weight: 600;
+    background: rgba(185, 122, 30, 0.08);
+    padding: 1px 4px;
+    margin-left: -4px;
+  }
+  .row-dates .val-resched-pending {
+    color: var(--ink-mute);
+    font-style: italic;
+  }
+  .row-dates .val-resched-pending::before {
+    content: "❖ ";
+    color: var(--amber);
+    font-style: normal;
+  }
+  .row-dates .val-resched-na {
+    color: var(--ink-faint);
+    letter-spacing: 0.15em;
+  }
+
   /* Status badge */
   .row-status {
     padding-top: 4px;
@@ -658,7 +690,7 @@
   <!-- ============ INTRO ============ -->
   <section class="intro">
     <div>
-      <p>本卷宗收錄「南湖共學團」自 2024 年 3 月至 2026 年 6 月間，共三個年度、二十有六場常規行程與五場外卡活動之執行情形。記錄包括原訂日期、實際出隊日期、籌備人員、實際參與夥伴，以及因天候、地震、人力等因素導致的路線轉進與延期紀錄。</p>
+      <p>本卷宗收錄「南湖共學團」自 2024 年 3 月至 2026 年 6 月間，共三個年度、二十有八場常規行程與四場外卡活動之執行情形。記錄包括原訂日期、實際出隊日期、籌備人員、實際參與夥伴，以及因天候、地震、人力等因素導致的路線轉進與延期紀錄。</p>
       <p>山徑因風雨而改道，計畫也常因人事而移轉。此檔記之以為將來查考。</p>
     </div>
     <div class="legend">
@@ -977,9 +1009,16 @@ Object.entries(groups).forEach(([key, g], gi) => {
       ? `<div class="blk"><span class="lbl">實際 · actual</span><span class="val-actual">${d.actualDate}</span></div>`
       : (d.status === 'cancel' ? `<div class="blk"><span class="lbl">實際 · actual</span><span class="val-actual" style="color:var(--seal-deep)">— 未出隊 —</span></div>` : '');
 
-    const reschedBlock = d.reschedule
-      ? `<div class="blk"><span class="lbl">續辦 · reschedule</span><span class="val-actual" style="color:var(--amber-deep)">${d.reschedule}</span></div>`
-      : '';
+    // 規劃續辦日期 (column C in xlsx) — always show for visibility
+    let reschedVal, reschedCls;
+    if (d.reschedule) {
+      reschedVal = d.reschedule;
+      reschedCls = /待確認/.test(d.reschedule) ? 'val-resched-pending' : 'val-resched-set';
+    } else {
+      reschedVal = 'N/A';
+      reschedCls = 'val-resched-na';
+    }
+    const reschedBlock = `<div class="blk resched-blk"><span class="lbl">規劃續辦日期 · RESCHEDULE</span><span class="${reschedCls}">${reschedVal}</span></div>`;
 
     const plannersBlock = d.planners && d.planners !== '—'
       ? `<div class="people-block"><span class="pl">籌備</span>${d.planners}</div>` : '';
